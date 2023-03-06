@@ -1,0 +1,25 @@
+import random
+
+
+bullet_string = ['bullet']
+bullets = [bullet_string,bullet_string,bullet_string]
+
+
+bl = len(bullets) - 1
+while True:
+    plr = input('> ')
+    if bullets == []:
+        print('reload')
+    elif plr == 'shoot':
+        rnd = random.randint(1,3)
+        print(f'\nRandom number is {rnd}\n')
+        if rnd == 2:
+            print(f'you shot your {bullets[bl]} and hit the target!')
+        elif rnd != 2:
+            bl = len(bullets) - 1
+            print(f'oops- you missed the target and lost a {bullets[bl]}')
+            bullets.pop()
+    if plr == 'reload':
+        bullets = [bullet_string,bullet_string,bullet_string] 
+    if plr == 'inv':
+        print(bullets)
